@@ -1,0 +1,40 @@
+# 传感器配置文件
+# 所有参数均为10进制，便于直接使用
+# 参考硬件文档时请注意进制转换：0x50=80, 0x3D=61
+
+# 重要：传感器采集默认关闭，需要通过API手动启动
+# 启动命令：POST /sensors/start
+# 停止命令：POST /sensors/stop
+
+# 串口配置
+serial:
+  port: "/dev/ttyUSB0"
+  baudrate: 9600
+  parity: "N"
+  stopbits: 1
+  bytesize: 8
+  timeout: 1
+
+# 传感器配置
+sensors:
+  angle_sensor_1:
+    slave_id: 80        # 0x50 in hex
+    address: 61         # 0x3D in hex
+    count: 2
+    parser: "angle"
+    # description: "角度传感器1 - Roll/Pitch"
+    # unit: "degrees"
+    
+  # 示例：添加更多传感器只需在此处扩展
+  # temperature_sensor:
+  #   slave_id: 81
+  #   address: 1
+  #   count: 1
+  #   parser: "temperature"
+  #   description: "温度传感器"
+  #   unit: "celsius"
+
+# 系统配置
+system:
+  polling_interval: 1.0  # 轮询间隔（秒）
+  cache_timeout: 5.0     # 缓存超时（秒）

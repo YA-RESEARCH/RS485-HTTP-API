@@ -1,0 +1,12 @@
+# RS485 HTTP API 项目依赖
+
+# Web 框架
+fastapi
+uvicorn[standard]
+
+# Modbus 通信
+pymodbus
+pyserial
+
+# 配置文件处理
+PyYAML
